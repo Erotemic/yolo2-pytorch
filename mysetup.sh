@@ -1,3 +1,10 @@
+__heredoc__='''
+cd ~/code
+git clone git@github.com:Erotemic/yolo2-pytorch.git
+cd $HOME/code/yolo2-pytorch
+sh mysetup.py
+'''
+
 mkdir -p $HOME/data/VOC
 cd $HOME/data/VOC
 
@@ -20,6 +27,7 @@ if [ ! -d "$HOME/code/yolo2-pytorch/data/VOCdevkit2007" ]; then
     cd $HOME/code/yolo2-pytorch
     mkdir -p $HOME/code/yolo2-pytorch/data
     cd $HOME/code/yolo2-pytorch/data
+    unlink VOCdevkit2007
     ln -s $HOME/data/VOC/VOCdevkit VOCdevkit2007
 fi 
 
