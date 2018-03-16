@@ -29,3 +29,10 @@ if [ ! -d "$HOME/code/yolo2-pytorch/data/darknet19.weights.npz" ]; then
     cd $HOME/code/yolo2-pytorch/data
     wget http://acidalia.kitware.com:8000/weights/darknet19.weights.npz
 fi
+
+
+# Train a model
+run_train(){
+cd $HOME/code/yolo2-pytorch
+python train.py
+}
