@@ -1,8 +1,7 @@
 __heredoc__='''
 cd ~/code
 git clone git@github.com:Erotemic/yolo2-pytorch.git
-cd $HOME/code/yolo2-pytorch
-sh mysetup.py
+bash $HOME/code/yolo2-pytorch/mysetup.sh
 '''
 
 mkdir -p $HOME/data/VOC
@@ -31,9 +30,13 @@ if [ ! -d "$HOME/code/yolo2-pytorch/data/VOCdevkit2007" ]; then
     ln -s $HOME/data/VOC/VOCdevkit VOCdevkit2007
 fi 
 
-if [ ! -d "$HOME/code/yolo2-pytorch/data/darknet19.weights.npz" ]; then
+if [ ! -f "$HOME/code/yolo2-pytorch/data/darknet19.weights.npz" ]; then
     cd $HOME/code/yolo2-pytorch/data
     wget http://acidalia.kitware.com:8000/weights/darknet19.weights.npz
+fi
+if [ ! -f "$HOME/code/yolo2-pytorch/data/yolo-voc.weights.h5" ]; then
+    cd $HOME/code/yolo2-pytorch/data
+    wget http://acidalia.kitware.com:8000/weights/yolo-voc.weights.h5
 fi
 
 
