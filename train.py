@@ -85,8 +85,6 @@ for step in range(start_epoch * imdb.batch_per_epoch,
 
     # backward
     loss = net.loss
-    import utool
-    utool.embed()
     if torch.__version__.startswith('0.3'):
         bbox_loss += net.bbox_loss.data.cpu().numpy()[0]
         iou_loss += net.iou_loss.data.cpu().numpy()[0]
