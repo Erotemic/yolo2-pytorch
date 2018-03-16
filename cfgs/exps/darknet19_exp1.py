@@ -1,7 +1,7 @@
+from os.path import expanduser
 exp_name = 'darknet19_voc07trainval_exp3'
 
-import ubelt as ub
-pretrained_fname = ub.truepath('~/code/yolo2-pytorch/darknet19.weights.npz')
+pretrained_fname = expanduser('~/code/yolo2-pytorch/data/darknet19.weights.npz')
 
 start_step = 0
 lr_decay_epochs = {60, 90}
