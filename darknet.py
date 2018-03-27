@@ -37,12 +37,12 @@ def _make_layers(in_channels, net_cfg):
     return nn.Sequential(*layers), in_channels
 
 
-def _process_batch(data, size_index):
+def _process_batch(data2, size_index):
     W, H = cfg.multi_scale_out_size[size_index]
     inp_size = cfg.multi_scale_inp_size[size_index]
     out_size = cfg.multi_scale_out_size[size_index]
 
-    bbox_pred_np, gt_boxes, gt_classes, dontcares, iou_pred_np = data
+    bbox_pred_np, gt_boxes, gt_classes, dontcares, iou_pred_np = data2
 
     # net output
     hw, num_anchors, _ = bbox_pred_np.shape

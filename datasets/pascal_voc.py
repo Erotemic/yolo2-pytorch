@@ -81,6 +81,10 @@ class VOCDataset(ImageDataset):
     def image_path_from_index(self, index):
         """
         Construct an image path from the image's "index" identifier.
+
+        Ignore:
+            self = imdb = pascal_voc.VOCDataset('voc_2007_test',
+                os.path.dirname(link), 1, None)
         """
         image_path = os.path.join(self._data_path, 'JPEGImages',
                                   index + self._image_ext)

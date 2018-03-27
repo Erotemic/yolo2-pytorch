@@ -151,6 +151,13 @@ def voc_eval(detpath,
         BB = BB[sorted_ind, :]
         image_ids = [image_ids[x] for x in sorted_ind]
 
+        # if False:
+        #     conf = confidence[sorted_ind]
+        #     flat_preds2 = pd.DataFrame({'gname': image_ids, 'box': BB.tolist(), 'conf':
+        #                         conf})
+        #     gname_to_gx = ub.invert_dict(dict(enumerate(imdb.image_indexes)))
+        #     flat_preds2['gx'] = list(ub.take(gname_to_gx, flat_preds2['gname']))
+
         # go down dets and mark TPs and FPs
         nd = len(image_ids)
         tp = np.zeros(nd)
@@ -190,6 +197,12 @@ def voc_eval(detpath,
                         fp[d] = 1.
             else:
                 fp[d] = 1.
+
+        if False:
+            fp2 = fp
+            tp2 = tp
+            print('fp2 = {!r}'.format(fp2))
+            print('tp2 = {!r}'.format(tp2))
 
         # compute precision recall
         fp = np.cumsum(fp)
